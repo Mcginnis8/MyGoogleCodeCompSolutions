@@ -1,0 +1,18 @@
+T = int(input())
+
+for x in range(1, T + 1):
+    N = int(input())
+    R = list(map(int,input().split()))
+    y = ''
+    maxnum = -1
+    maxint = 0
+    for num in range(len(R)):
+        R[num] = int(R[num])
+    for a in range(N):
+        temp = R.copy()
+        del temp[a]
+        temp = [item for item in temp if item <= (2 * R[a])]
+        temp.append(-1)
+        maxnum = max(temp)
+        y += str(maxnum) + ' '
+    print(f"Case #{x}: {y}")
